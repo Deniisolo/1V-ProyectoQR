@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estadísticas Individuales</title>
+  <link rel="stylesheet" href="asistencia.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="home.html">
+    <img src="logo.png" alt="Logo" class="logo-icon">
+    </a>
+    <ul>
+      <li><a href="#">Escanear<br><span class="sub">QR</span></a></li>
+      <li><a href="index.html">Crear aprendiz</a></li>
+      <li><a href="editar.html">Modificar aprendiz</a></li>
+      <li><a href="asistencia.html">Ver estadísticas</a></li>
+      <li><a href="#">Descargar lista</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido -->
+  <div class="container">
+    <h2>Estadísticas de: <strong>Maria Paula Perez Jimenez</strong> ▼</h2>
+
+    <div class="chart-box">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <a href="#" class="descargar-btn">Descargar Estadística</a>
+
+    <div class="toggle-buttons">
+      <button class="btn-primary">Aprendiz</button>
+      <button class="btn-secondary">Aprendices</button>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['12-03-2025', '13-03-2025', '14-03-2025', '15-03-2025', '16-03-2025', '17-03-2025'],
+        datasets: [
+          {
+            label: 'LLEGADAS TARDE',
+            backgroundColor: '#339CFF',
+            data: [1, 5, 11, 5, 13, 14]
+          },
+          {
+            label: 'NO ASISTENCIA',
+            backgroundColor: '#FFD43B',
+            data: [6, 4, 5, 11, 14, 9]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: '#333'
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
